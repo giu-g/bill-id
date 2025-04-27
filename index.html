@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bill-ID</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header>
+    <!-- Text + image layout -->
+    <div class="header-flex">
+      <div class="title-text">
+        <h1 class="main-title" id="title">Bill-ID</h1>
+        <p class="subtitle" id="subtitle">Empowering the visually impaired</p>
+        <p class="description" id="description">Helping blind and visually impaired Brazilians identify their banknotes
+          with ease and
+          independence.</p>
+      </div>
+      <img src="./img/billid.png" alt="Bill-ID device" class="device-image" />
+    </div>
+  </header>
+
+  <div class="controls-bar">
+    <div class="font-buttons">
+      <label for="font-size-controls" id="labelfont">Font Size:</label>
+      <button id="decrease-font">-</button>
+      <button id="increase-font">+</button>
+    </div>
+
+    <div class="colorlabelbuttons" style="display: flex; align-items: center; gap: 10px;">
+      <label for="color-controls" id="colorcontroll">Color Scheme:</label>
+      <button id="color-palette-btn">
+        <img src="./img/colors.png" alt="Color Palette" width="31px" />
+      </button>
+    </div>
+    
+    <div class="lang-switch">
+      <label for="lang-switch" id="labellanguage">Language:</label>
+      <button onclick="switchLang('pt'); changeAudio('pt');"><img src="./img/brazil.png" alt="Português" /></button>
+      <button onclick="switchLang('en'); changeAudio('en')"><img src="./img/usa.webp" alt="English" /></button>
+      <button onclick="switchLang('es'); changeAudio('es')"><img src="./img/spain.png" alt="Español" /></button>
+    </div>
+  </div>
+
+  <div id="color-palette" class="no-filter">
+    <div class="color-options">
+      <div class="color-option" id="normal">
+        <span class="color-name">Normal</span>
+        <div class="color-circle" style="background-color: white;"></div>
+      </div>
+      <div class="color-option" id="sepia">
+        <span class="color-name">Sepia</span>
+        <div class="color-circle" style="background: linear-gradient(to right, #f4ecd8, #d0b79e);"></div>
+      </div>
+      <div class="color-option" id="grayscale">
+        <span class="color-name">Grayscale</span>
+        <div class="color-circle" style="background: linear-gradient(to right, #f9f9f7, #c4c4c4);"></div>
+      </div>
+      <div class="color-option" id="invert">
+        <span class="color-name">Inverted</span>
+        <div class="color-circle" style="background: linear-gradient(to right, #fff, #000, #ffb6c1, #add8e6);"></div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <div class="audio-description">
+      <p style="margin-top: 10px;" id="audioDescriptionText">Listen to an audio description of the content below.</p>
+      <audio id="track" controls>
+        <source src="./audio/EnglishVoiceOver.mp3" type="audio/mpeg" id="alternativetoaudio" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    <br>
+
+    <section id="about">
+      <h2 id="whyAccessibilityTitle">Why Is Accessibility Important?</h2>
+      <div class="flex">
+        <p id="whyAccessibilityContent1">
+          <strong>Inclusion matters.</strong> Tools like <strong>Bill-ID</strong> make everyday tasks like identifying
+          cash simple and dignified for people with visual impairments.
+          Our site uses <strong>accessibility-first design</strong> so everyone can navigate it with comfort.
+        </p>
+        <p id="whyAccessibilityContent2">
+          In Brazil, where <strong>more than 6.5 million people</strong> live with some form of visual impairment, even
+          recognizing money can become a barrier to independence.
+          While the Brazilian Central Bank has included features like <em>different sizes</em> and <em>tactile
+            markings</em> to distinguish banknotes, these features are often <strong>too subtle, difficult to memorize,
+            or fade over time</strong>.
+          As a result, many blind and visually impaired individuals still rely on others to confirm the value of their
+          money, which can compromise their <strong>privacy, autonomy, and even safety</strong>.
+        </p>
+        <p id="whyAccessibilityContent3">
+          The issue isn’t just about design—it’s about <strong>equity and dignity</strong>. In a country marked by deep
+          social and economic inequalities, <strong>accessibility isn’t a luxury—it’s a necessity</strong>.
+          People with disabilities, particularly in under-resourced communities, face <strong>multiple layers of
+            exclusion</strong>.
+          For them, accessible tools are essential to participate fully in society, <em>manage their finances
+            independently</em>, and reduce the risk of being taken advantage of.
+        </p>
+        <p id="whyAccessibilityContent4">
+          Brazil’s laws, including the <strong>Brazilian Inclusion Law (Lei Brasileira de Inclusão)</strong>, aim to
+          protect the rights of people with disabilities, but there is still a long way to go in making daily life
+          genuinely accessible.
+          That’s where inclusive technology comes in. Tools like <strong>Bill-ID</strong> don’t just bridge a technical
+          gap—they reinforce people’s <strong>right to live with independence and respect</strong>.
+        </p>
+        <p id="whyAccessibilityContent5">
+          By building accessibility into our design from the start, we’re not only helping individuals—we’re
+          <strong>strengthening a more just and inclusive society</strong>.
+          Because when accessibility is prioritized, <strong>everyone benefits</strong>.
+        </p>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="gradient-section-content">
+      <h2 id="howItWorksTitle">How Bill-ID Works</h2>
+      <p id="howItWorksContent">The device detects the value of banknotes and announces it aloud. Here’s how it works:
+      </p>
+      <ol>
+        <li id="howItWorksList1">The system uses a <strong>sensor</strong> to detect the color of the banknote and
+          processes the information.</li>
+        <li id="howItWorksList2">The <strong>microcontroller</strong> identifies the value of the bill.</li>
+        <li id="howItWorksList3">The <strong>audio player</strong> plays the sound file that announces the bill’s value
+          (e.g., “Five Dollars”).</li>
+        <li id="howItWorksList4">The <strong>speaker</strong> outputs the audio, allowing the user to hear the value of
+          the bill.</li>
+        <li id="howItWorksList5">The system runs on <strong>batteries</strong>, making it portable and easy to use.</li>
+      </ol>
+    </section>
+
+    <div class="note-box">
+      <img src="./img/notes-icon.png" alt="Note icon" class="note-icon" />
+      <p id="noteboxinfo">We plan to add a headphone socket in the future, allowing users to hear the audio privately.
+      </p>
+    </div>
+
+    <section id="instructions">
+      <h2 id="instructionsTitle">Instructions</h2>
+      <ol>
+        <li id="instructionsContent1">Press the button to turn the device on or off.</li>
+        <li id="instructionsContent2">Insert the banknote into the gap between the lens and the protective wall.</li>
+        <li id="instructionsContent3">Wait a few seconds for the system to recognize the value.</li>
+        <li id="instructionsContent4">Listen to the announcement through the speaker.</li>
+        <li id="instructionsContent5">Repeat with other banknotes if needed.</li>
+      </ol>
+    </section>
+
+    <section id="contact">
+      <h2 id="contactTitle">Contact</h2>
+      <p id="contactContent">Need help? Reach out:</p>
+      <ul>
+        <li id="email">Email: <a href="mailto:support@bill-id.com">support@bill-id.com</a></li>
+        <li id="phone">Phone: +55 (XX) XXXXX-XXXX</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p id="footertitle">Bill-ID | Accessible Tech for Everyone</p>
+
+    <p style="font-size: 0.9em; margin: 30px 0px 30px 0;" id="footerdescription">Making currency recognition easier for
+      all users.</p>
+
+    <div style="margin-top: 10px; font-size: 0.85em;">
+      <a href="#about" style="margin-right: 15px;" id="footerlink1">About</a>
+      <a href="#how-it-works" style="margin-right: 15px;" id="footerlink2">How It Works</a>
+      <a href="#contact" id="footerlink3">Contact</a>
+    </div>
+    <p style="font-size: 0.8em; color: #555; margin-top: 10px;" id="footercredits">
+      Created by Giulia Schiavetto. © 2025 Bill-ID. All rights reserved.
+    </p>
+  </footer>
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>
